@@ -1,0 +1,7 @@
+/.eslintignore
+/.eslintrc.json
+/.github
+/.nvmrc
+/test
+/.travis.yml
+/*.tgz
