@@ -89,7 +89,7 @@ function checkV2 () {
     console.log(robotData);
   });
   const packet = 'f005efcc3b2900';
-  var client = tls.connect(8883, host, {timeout: 10000, rejectUnauthorized: false, ciphers: process.env.ROBOT_CIPHERS || 'AES128-SHA256', secureOptions: constants.SSL_OP_LEGACY_SERVER_CONNECT}, function () {
+  var client = tls.connect(8883, host, {timeout: 10000, rejectUnauthorized: false, ciphers: process.env.ROBOT_CIPHERS || 'AES128-SHA256,TLS_AES_256_GCM_SHA384', secureOptions: constants.SSL_OP_LEGACY_SERVER_CONNECT}, function () {
     client.write(new Buffer(packet, 'hex'));
   });
 
