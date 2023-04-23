@@ -34,7 +34,7 @@ declare module "dorita980" {
     export class Local implements Roomba {
         public connected: boolean;
 
-        public constructor(blid: string, robotpwd: string, ipaddress: string, version: 2, emitIntervalTime?: number)
+        public constructor(blid: string, robotpwd: string, ipaddress: string, version: 2, options?: LocalOptions)
         public constructor(blid: string, robotpwd: string, ipaddress: string, version: 1)
         public constructor(blid: string, robotpwd: string, ipaddress: string)
 
@@ -50,5 +50,11 @@ declare module "dorita980" {
         public dock(): Promise<CommandResult>
         public find(): Promise<CommandResult>
         public getRobotState(states: string[]): Promise<RobotState>
+    }
+
+    export interface LocalOptions {
+        port?: number
+        ciphers?: string
+        emitIntervalTime?: number
     }
 }
