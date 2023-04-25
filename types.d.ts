@@ -6,18 +6,14 @@ declare module "dorita980" {
         on(event: "error", callback: (error: Error) => void): void
         on(event: string, callback: () => void): void
         off(event: string, callback: unknown): void
-        clean(): Promise<CommandResult>
-        resume(): Promise<CommandResult>
-        pause(): Promise<CommandResult>
-        stop(): Promise<CommandResult>
+        clean(): Promise<void>
+        resume(): Promise<void>
+        pause(): Promise<void>
+        stop(): Promise<void>
         end(): void
-        dock(): Promise<CommandResult>
-        find(): Promise<CommandResult>
+        dock(): Promise<void>
+        find(): Promise<void>
         getRobotState(states: string[]): Promise<RobotState>
-    }
-
-    export interface CommandStatus {
-        ok: string | null | boolean
     }
     
     export interface RobotState {
@@ -42,13 +38,13 @@ declare module "dorita980" {
         public on(event: "error", callback: (error: Error) => void): void;
         public on(event: string, callback: () => void): void;
         public off(event: string, callback: unknown): void;
-        public clean(): Promise<CommandResult>
-        public resume(): Promise<CommandResult>
-        public pause(): Promise<CommandResult>
-        public stop(): Promise<CommandResult>
-        public end(): Promise<CommandResult>
-        public dock(): Promise<CommandResult>
-        public find(): Promise<CommandResult>
+        public clean(): Promise<void>
+        public resume(): Promise<void>
+        public pause(): Promise<void>
+        public stop(): Promise<void>
+        public end(): Promise<void>
+        public dock(): Promise<void>
+        public find(): Promise<void>
         public getRobotState(states: string[]): Promise<RobotState>
     }
 
