@@ -7,6 +7,7 @@ declare module "dorita980" {
         on(event: string, callback: () => void): void
         off(event: string, callback: unknown): void
         clean(): Promise<void>
+        cleanRoom(mission: RobotMission): Promise<void>
         resume(): Promise<void>
         pause(): Promise<void>
         stop(): Promise<void>
@@ -27,6 +28,20 @@ declare module "dorita980" {
         }
     }
 
+    export interface RobotMission {
+        ordered?: number
+        pmap_id?: string
+        regions?: {
+            region_id: string
+            type: string
+            params?: {
+                noAutoPasses?: boolean
+                twoPasses?: boolean
+            }
+        }
+        user_pmapv_id?: string
+    }
+
     export class Local implements Roomba {
         public connected: boolean;
 
@@ -39,6 +54,7 @@ declare module "dorita980" {
         public on(event: string, callback: () => void): void;
         public off(event: string, callback: unknown): void;
         public clean(): Promise<void>
+        public cleanRoom(mission: RobotMission): Promise<void>
         public resume(): Promise<void>
         public pause(): Promise<void>
         public stop(): Promise<void>
